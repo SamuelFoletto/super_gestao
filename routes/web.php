@@ -27,18 +27,18 @@ Route::middleware([LogAcessoMiddleware::class])->group(function () {
             Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('app.home');
             Route::get('/sair', [\App\Http\Controllers\LoginController::class, 'sair'])->name('app.sair');
             Route::get('/cliente', [\App\Http\Controllers\ClienteController::class, 'index'])->name('app.cliente');
-            Route::get('/produto', [\App\Http\Controllers\ProdutoController::class, 'index'])->name('app.produto');
 
+            // Fornecedor-------------------------------------------------------------------------------------------------------------------------
             Route::get('/fornecedor', [\App\Http\Controllers\FornecedorController::class, 'index'])->name('app.fornecedor');
             Route::post('/fornecedor/listar', [\App\Http\Controllers\FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
             Route::get('/fornecedor/listar', [\App\Http\Controllers\FornecedorController::class, 'listar'])->name('app.fornecedor.listar');
-
             Route::get('/fornecedor/adicionar', [\App\Http\Controllers\FornecedorController::class, 'adicionar'])->name('app.fornecedor.adicionar');
             Route::post('/fornecedor/adicionar', [\App\Http\Controllers\FornecedorController::class, 'adicionar'])->name('app.fornecedor.adicionar');
-
             Route::get('/fornecedor/editar/{id}/{msg?}', [\App\Http\Controllers\FornecedorController::class, 'editar'])->name('app.fornecedor.editar');
-
             Route::get('/fornecedor/excluir/{id}', [\App\Http\Controllers\FornecedorController::class, 'excluir'])->name('app.fornecedor.excluir');
+            // Produto ---------------------------------------------------------------------------------------------------------------------------
+            Route::resource('produto', \App\Http\Controllers\ProdutoController::class);
+            Route::resource('produto-detalhe', \App\Http\Controllers\ProdutoDetalheController::class);
         });
     });
 
