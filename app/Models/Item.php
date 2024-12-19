@@ -13,9 +13,15 @@ class Item extends Model
         'nome',
         'descricao',
         'peso',
-        'unidade_id'
+        'unidade_id',
+        'fornecedor_id'
     ];
+
     public function itemDetalhe(){
         return $this->hasOne('App\Models\ItemDetalhe', 'produto_id', 'id' );
+    }
+
+    public function fornecedor(){ //um modelo do tipo item pertence a um fornecedor
+        return $this->belongsTo('App\Models\Fornecedor', 'fornecedor_id', 'id');
     }
 }
