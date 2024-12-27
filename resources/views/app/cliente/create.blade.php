@@ -13,7 +13,7 @@
                 <li><a href="{{route('cliente.index')}}">Voltar</a></li>
                 <li><a href="">Consulta</a></li>
             </ul>
-
+            
         </div>
 
         <div class="informacao-pagina">

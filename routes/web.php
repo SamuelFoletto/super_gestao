@@ -45,7 +45,10 @@ Route::middleware([LogAcessoMiddleware::class])->group(function () {
             Route::resource('pedido', \App\Http\Controllers\PedidoController::class);
 
             // PedidoProduto ---------------------------------------------------------------------------------------------------------------------------
-            Route::resource('pedido-produto', \App\Http\Controllers\PedidoProdutoController::class);
+            //Route::resource('pedido-produto', \App\Http\Controllers\PedidoProdutoController::class);
+            Route::get('pedido-produto/create/{pedido}', '\App\Http\Controllers\PedidoProdutoController@create')->name('pedido-produto.create');
+            Route::post('pedido-produto/store/{pedido}', '\App\Http\Controllers\PedidoProdutoController@store')->name('pedido-produto.store');
+
         });
 
 
